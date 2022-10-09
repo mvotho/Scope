@@ -3,12 +3,16 @@ const Map = require("../models/map")
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('game')
-		.setDescription('Best of 1'),
+		.setName('maps')
+		.setDescription('List all maps'),
 	async execute(interaction) {
-
-		const test = await Map.find({});
-		console.log(test)
-		return interaction.reply('Pong!');
+		const maps = await Map.find({});
+		const mapOutput = []
+		maps.map((map) => {
+			let str = map.map;
+			let str2 = map.map.charAt(0).toUpperCase() + str.slice(1);
+			mapOutput.push(str2 + " ");
+		})
+		return interaction.reply(mapOutput.toString());
 	},
 };
