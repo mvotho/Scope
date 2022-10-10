@@ -5,7 +5,7 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('maps')
 		.setDescription('List all maps'),
-	async execute(interaction) {
+	async execute(interaction, client) {
 		const maps = await Map.find({});
 		const mapOutput = []
 		maps.map((map) => {
