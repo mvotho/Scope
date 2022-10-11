@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const Map = require("../models/map")
+const Map = require("../../models/map")
 
 module.exports = {
 	data: new SlashCommandBuilder()

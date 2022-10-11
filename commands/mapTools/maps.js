@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const Map = require("../models/map")
+const Map = require("../../models/map")
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -11,7 +11,7 @@ module.exports = {
 		maps.map((map) => {
 			let str = map.map;
 			let str2 = map.map.charAt(0).toUpperCase() + str.slice(1);
-			mapOutput.push(str2 + " ");
+			mapOutput.push( " "+ str2);
 		})
 		return interaction.reply(mapOutput.toString());
 	},
