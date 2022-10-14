@@ -1,10 +1,10 @@
-const { readdirsync } = require("fs")
+const { readdirSync } = require("fs")
 
 module.exports = (client) => {
     client.handleComponents = async () => {
-        const componentFolders = readdirsync(`./components`);
+        const componentFolders = readdirSync(`./components`);
         for (const folder of componentFolders) {
-            const componentFiles = readdirsync(`./components/${folder}`).filter(
+            const componentFiles = readdirSync(`./components/${folder}`).filter(
                 (file) => file.endsWith(".js")
             );
 
@@ -28,7 +28,7 @@ module.exports = (client) => {
 
                 case "modals":
                     for (const file of componentFiles){
-                        const modal = require(`../../compnents/${folder}/${file}`);
+                        const modal = require(`../../components/${folder}/${file}`);
                         modals.set(modal.data.name, modal);
                     }
                     break;

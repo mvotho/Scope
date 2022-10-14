@@ -48,7 +48,7 @@ module.exports = {
             const {customId} = interaction;
             const modal = modals.get(customId)
 
-            if(!modal) return new error("There is no code for this modal")
+            if(!modal) return new Error("There is no code for this modal")
 
             try {
                 await modal.execute(interaction, client);
