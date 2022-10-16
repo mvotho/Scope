@@ -14,14 +14,14 @@ module.exports = (client) => {
             switch (folder) {
                 case "buttons":
                     for (const file of componentFiles){
-                        const button = require(`../../compnents/${folder}/${file}`);
+                        const button = require(`../../components/${folder}/${file}`);
                         buttons.set(button.data.name, button);
                     }
                         break;
 
                 case "selectMenus":
                     for (const file of componentFiles){
-                        const menu = require(`../../compnents/${folder}/${file}`);
+                        const menu = require(`../../components/${folder}/${file}`);
                         selectMenus.set(menu.data.name, menu);
                     }
                     break;
