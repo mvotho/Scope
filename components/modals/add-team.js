@@ -5,11 +5,25 @@ module.exports = {
         name: `add-team`
     },
 
-    async execute(interaction, client){
-        await Team.create({teamName: interaction.fields.getTextInputValue("teamInput")})
-        //input this person into that team
-        await interaction.reply({
-            content: `You are leader of:  ${interaction.fields.getTextInputValue("teamInput")}`
-        });
+    async execute(interaction, client) {
+
+        const teamTest = await Team.find({ teamName: interaction.fields.getTextInputValue("teamInput") })
+
+        if (!teamTest[0]?.teamName) {
+            await Team.create({
+                teamName: interaction.fields.getTextInputValue("teamInput"),
+                members: [{ name: interaction.user.tag, leader: true }]
+            })
+
+            await interaction.reply({
+                content: `You are leader of:  ${interaction.fields.getTextInputValue("teamInput")}`
+            });
+        } else {
+            await interaction.reply({
+                content: `The team ${interaction.fields.getTextInputValue("teamInput")} already exists.`
+            });
+
+        }
+
     }
 }
