@@ -1,13 +1,11 @@
-const Team = require("../../models/team")
-
 module.exports = {
     data: {
-        name: `remove-member`
+        name: `add-member`
     },
 
     async execute(interaction, client){
         await interaction.reply({
-            content: `You deleted summet`
+            content: `You added ${interaction.fields.getTextInputValue("memberInput")} as a member.`
         });
     }
 }

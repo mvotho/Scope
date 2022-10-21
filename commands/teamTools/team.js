@@ -31,7 +31,7 @@ module.exports = {
 
                 const buttonLeaveTeam = new ButtonBuilder()
                     .setCustomId("leave-team")
-                    .setLabel("Remove member")
+                    .setLabel("Leave Team")
                     .setStyle(ButtonStyle.Danger);
 
                 const buttonDisbandTeam = new ButtonBuilder()
