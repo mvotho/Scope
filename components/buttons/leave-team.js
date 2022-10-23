@@ -16,7 +16,7 @@ module.exports = {
             .setStyle(ButtonStyle.Danger);
 
         await interaction.reply({
-            content: `Are you sure you want to leave the team?`,
+            content: `Leave the team?`,
             components: [
                 new ActionRowBuilder().addComponents(buttonLeaveTeam),
                 new ActionRowBuilder().addComponents(buttonCancel)]
