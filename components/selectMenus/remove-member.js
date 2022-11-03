@@ -6,6 +6,7 @@ module.exports = {
     },
 
     async execute(interaction, client){
+        console.log(interaction.values[0])
         await interaction.reply({
             content: `You deleted summet`
         });

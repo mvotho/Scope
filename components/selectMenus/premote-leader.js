@@ -5,7 +5,8 @@ module.exports = {
         name: `remove-member`
     },
 
-    async execute(interaction, client){
+    async execute(interaction, client) {
+        console.log(interaction.values[0])
         await interaction.reply({
             content: `You deleted summet`
         });
