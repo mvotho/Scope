@@ -5,6 +5,8 @@ module.exports = {
         name:`add-member`
     },
     async execute(interaction, client) {
+        console.log(interaction)
+        
         const modal = new ModalBuilder()
         .setCustomId(`add-member`)
         .setTitle(`Add member.`);

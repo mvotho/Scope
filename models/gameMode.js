@@ -3,13 +3,14 @@ const { Schema, model } = mongoose;
 
 const gameModeSchema = new Schema({
     gameMode: String,
-    gameRules: {
+    gameModeRules: {
+        gameRules: {},
         playerOptions: {
             numberofLives: String,
             respawnDelay: Integer,
             maxHealth: String,
             healthRegeneration: String,
-            KillCam: Boolean
+            killCam: Boolean
         },
         teamOptions: {
             spectating: String,
@@ -26,9 +27,9 @@ const gameModeSchema = new Schema({
             thirdPerson: Boolean
         }
     },
-    maps:[{
-            type: [Schema.Types.ObjectId],
-            ref: "maps"
+    maps: [{
+        type: [Schema.Types.ObjectId],
+        ref: "maps"
     }]
 });
 

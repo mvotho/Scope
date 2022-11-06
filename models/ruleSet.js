@@ -5,7 +5,7 @@ const ruleSetSchema = new Schema({
     ruleSet: String,
     gameMode: [{
         type: [Schema.Types.ObjectId],
-        ref: "gameMode"
+        ref: "gameModes"
     }]
 });
 
