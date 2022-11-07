@@ -2,13 +2,15 @@ const Team = require("../../models/team")
 
 module.exports = {
     data: {
-        name: `remove-member`
+        name: `premote-leader`
     },
 
     async execute(interaction, client) {
-        console.log(interaction.values[0])
+        console.log("test"+interaction.values[0])
+        const teams = await Team.findOne({ members: { $elemMatch: { name: interaction.values[0] } } });
+        console.log(teams)
         await interaction.reply({
-            content: `You deleted summet`
+            content: `You promoted ${interaction.values[0]}`
         });
     }
 }

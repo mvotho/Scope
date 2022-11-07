@@ -7,14 +7,7 @@ module.exports = {
     async execute(interaction, client) {
         const teams = await Team.findOne({ members: { $elemMatch: { name: interaction.user.tag } } });
 
-        if (teams == null) {
-            await interaction.reply({
-                content: `You are not in a team, create or join a team`
-            });
-        } else {
-            if (teams.members[0].name == interaction.user.tag && teams.members[0].leader == true) {
-
-                const buttonAddMember = new ButtonBuilder()
+        const buttonAddMember = new ButtonBuilder()
                     .setCustomId("add-member")
                     .setLabel("Add member")
                     .setStyle(ButtonStyle.Primary);
@@ -39,6 +32,12 @@ module.exports = {
                     .setLabel("Disband Team")
                     .setStyle(ButtonStyle.Danger);
 
+        if (teams == null) {
+            await interaction.reply({
+                content: `You are not in a team, create or join a team`
+            });
+        } else {
+            if (teams.members[0].name == interaction.user.tag && teams.members[0].leader == true) {
                 await interaction.reply({
                     components: [
                         new ActionRowBuilder().addComponents(buttonAddMember),
@@ -50,7 +49,10 @@ module.exports = {
                 });
             } else {
                 await interaction.reply({
-                    content: `Team found but you are not leader`
+                    components: [
+                        new ActionRowBuilder().addComponents(buttonLeaveTeam),
+                       
+                    ]
                 });
             }
 
