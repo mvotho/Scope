@@ -17,10 +17,10 @@ module.exports = {
                     .setLabel("Remove member")
                     .setStyle(ButtonStyle.Primary);
 
-                const buttonPremoteLeader = new ButtonBuilder()
-                    .setCustomId("premote-leader")
-                    .setLabel("Premote Leader")
-                    .setStyle(ButtonStyle.Primary);
+                // const buttonPremoteLeader = new ButtonBuilder()
+                //     .setCustomId("premote-leader")
+                //     .setLabel("Premote Leader")
+                //     .setStyle(ButtonStyle.Primary);
 
                 const buttonLeaveTeam = new ButtonBuilder()
                     .setCustomId("leave-team")
@@ -42,7 +42,7 @@ module.exports = {
                     components: [
                         new ActionRowBuilder().addComponents(buttonAddMember),
                         new ActionRowBuilder().addComponents(buttonRemoveMemeber),
-                        new ActionRowBuilder().addComponents(buttonPremoteLeader),
+                        // new ActionRowBuilder().addComponents(buttonPremoteLeader),
                         new ActionRowBuilder().addComponents(buttonLeaveTeam),
                         new ActionRowBuilder().addComponents(buttonDisbandTeam)
                     ]
