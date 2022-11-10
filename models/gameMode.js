@@ -7,14 +7,14 @@ const gameModeSchema = new Schema({
         gameRules: {},
         playerOptions: {
             numberofLives: String,
-            respawnDelay: Integer,
+            respawnDelay: Number,
             maxHealth: String,
             healthRegeneration: String,
             killCam: Boolean
         },
         teamOptions: {
             spectating: String,
-            waveSpawnDelay: Integer,
+            waveSpawnDelay: Number,
             forceRespawn: Boolean,
             radarAlwaysOn: Boolean,
             friendlyFire: Boolean
@@ -33,5 +33,5 @@ const gameModeSchema = new Schema({
     }]
 });
 
-const GameMode = model('gameMode', gameModeSchema);
+const GameMode = model('gamemode', gameModeSchema);
 module.exports = GameMode;

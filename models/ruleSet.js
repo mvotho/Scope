@@ -3,11 +3,14 @@ const { Schema, model } = mongoose;
 
 const ruleSetSchema = new Schema({
     ruleSet: String,
-    gameMode: [{
-        type: [Schema.Types.ObjectId],
-        ref: "gameModes"
-    }]
+    gameModes: [{
+        gameMode:{
+            type: Schema.Types.ObjectId,
+            ref: "gameMode"
+        }
+        
+}]
 });
 
-const RuleSet = model('ruleSet', ruleSetSchema);
+const RuleSet = model('ruleset', ruleSetSchema);
 module.exports = RuleSet;
