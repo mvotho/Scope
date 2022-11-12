@@ -28,8 +28,8 @@ const gameModeSchema = new Schema({
         }
     },
     maps: [{
-        type: [Schema.Types.ObjectId],
-        ref: "maps"
+        type: Schema.Types.ObjectId,
+        ref: "map"
     }]
 });
 
