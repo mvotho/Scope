@@ -33,5 +33,5 @@ const gameModeSchema = new Schema({
     }]
 });
 
-const GameMode = model('gamemode', gameModeSchema);
+const GameMode = model('gameMode', gameModeSchema);
 module.exports = GameMode;
