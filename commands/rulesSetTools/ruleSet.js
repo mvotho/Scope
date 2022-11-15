@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const RuleSet = require("../../models/ruleSet")
 const { EmbedBuilder } = require('discord.js');
+const maps = require('../mapTools/maps');
 
 
 module.exports = {
@@ -9,7 +10,7 @@ module.exports = {
         .setDescription('Rule sets'),
     async execute(interaction, client) {
         const gmEmbeds = []
-        await RuleSet.find({})
+        await RuleSet.findOne({})
             .populate({
                 path: "gameModes",
                 populate: {
@@ -18,14 +19,14 @@ module.exports = {
             })
             .exec()
             .then((gm => {
-                gm?.map((r) => {
-                    console.log(r.ruleSet)
-                    r.gameModes?.map((gm => {
-                        console.log(gm.gameModeRules)
-                        console.log(gm.maps) 
-                    }))
+                gm.gameModes.map((mode) => {
+                    console.log(mode.gameMode)
+                    mode.maps.map((m)=>{
+                        console.log("----")
+                        console.log(m.name)
+                    })
                 })
-            }));
+             }));
         return interaction.reply("test");
 
     },
