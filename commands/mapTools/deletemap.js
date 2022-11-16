@@ -16,9 +16,9 @@ module.exports = {
 			.setOptions(
 				maps.map((m) => {
 					return {
-						label: m.map,
-						description: m.map,
-						value: m.map
+						label: m.name,
+						description: m.name,
+						value: m.name
 					}
 				})
 			)

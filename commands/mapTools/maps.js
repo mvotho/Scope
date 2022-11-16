@@ -9,8 +9,8 @@ module.exports = {
 		const maps = await Map.find({});
 		const mapOutput = []
 		maps.map((map) => {
-			let str = map.map;
-			let str2 = map.map.charAt(0).toUpperCase() + str.slice(1);
+			let str = map.name;
+			let str2 = map.name.charAt(0).toUpperCase() + str.slice(1);
 			mapOutput.push( " "+ str2);
 		})
 		return interaction.reply(mapOutput.toString());
